@@ -1,0 +1,45 @@
+# This is a neoforge.mods.toml file. Placeholders are expanded by the generateModMetadata task.
+# Edit versions/names in gradle.properties, not this generated output.
+
+modLoader="javafml" #mandatory
+loaderVersion="${loader_version_range}" #mandatory
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+description='''
+${mod_description}
+'''
+
+[[dependencies.${mod_id}]] #optional
+    modId="neoforge" #mandatory
+    type="required" #mandatory
+    versionRange="[${neo_version},)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+# AE2: provides the MEStorage API and the storage bus that consumes this capability.
+[[dependencies.${mod_id}]]
+    modId="ae2"
+    type="required"
+    versionRange="${ae2_version_range}"
+    ordering="AFTER"
+    side="BOTH"
+
+# Occultism: the mod whose Storage Controller we expose as native ME storage.
+[[dependencies.${mod_id}]]
+    modId="occultism"
+    type="required"
+    versionRange="${occultism_version_range}"
+    ordering="AFTER"
+    side="BOTH"
