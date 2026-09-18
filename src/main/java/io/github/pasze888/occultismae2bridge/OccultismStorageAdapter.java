@@ -1,5 +1,5 @@
 /*
- * SPDX-License-Identifier: MIT
+ * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 package io.github.pasze888.occultismae2bridge;
 
@@ -25,6 +25,10 @@ import appeng.api.storage.MEStorage;
  * Bridges the Occultism Storage Controller to AE2 as native ME storage. Backed directly by the
  * controller's map-based item handler, so amounts are the true aggregated totals per item type
  * rather than the per-slot stack view the plain {@code IItemHandler} exposes.
+ *
+ * <p>Structurally adapted from Applied-Mekanistics' {@code QioStorageAdapter}
+ * (Copyright ramidzkh, LGPL-3.0-or-later),
+ * <a href="https://github.com/ramidzkh/Applied-Mekanistics">ramidzkh/Applied-Mekanistics</a>.
  */
 public class OccultismStorageAdapter implements MEStorage {
 

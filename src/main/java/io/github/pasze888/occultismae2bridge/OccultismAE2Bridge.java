@@ -1,5 +1,5 @@
 /*
- * SPDX-License-Identifier: MIT
+ * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 package io.github.pasze888.occultismae2bridge;
 
@@ -35,6 +35,8 @@ public class OccultismAE2Bridge {
         modEventBus.addListener(this::onRegisterCapabilities);
     }
 
+    // Registers ME_STORAGE on the block, following Applied-Mekanistics' QioSupport
+    // (ramidzkh, LGPL-3.0-or-later); all four StorageControllerBlock variants share one BE type.
     private void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
         Block[] controllers = Arrays.stream(STORAGE_CONTROLLER_IDS)
                 .map(id -> BuiltInRegistries.BLOCK
