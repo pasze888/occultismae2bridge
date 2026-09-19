@@ -84,6 +84,14 @@ dependencies {
     implementation "org.appliedenergistics:appliedenergistics2:${ae2_version}"
     // Occultism: we read StorageControllerBlockEntity / MapItemStackHandler.
     implementation "curse.maven:occultism-361026:${occultism_file_id}"
+    // Occultism 的必装前置，本模组不 import 它们的任何类，只是让本地运行时能加载 Occultism。
+    // 用 localRuntime 而非 implementation：不进编译类路径，也不作为依赖对外发布。
+    // curse.maven: 坐标没有 POM，依赖不传递，必须逐个显式声明，否则启动时 ModSorter 报
+    // "Missing or unsupported mandatory dependencies"。fileID 写死，版本下限见注释。
+    localRuntime "curse.maven:modonomicon-538392:8532346"    // 1.120.4，需要 >= 1.117.2
+    localRuntime "curse.maven:geckolib-388172:8893490"       // 4.9.3，需要 >= 4.5.5
+    localRuntime "curse.maven:curios-309927:6529130"         // 9.5.1，需要 >= 9.5.1
+    localRuntime "curse.maven:smartbrainlib-661293:7055149"  // 1.16.11，需要 >= 1.14.5
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
